@@ -21,5 +21,31 @@ window.onload = () => {
 }
 
 function loadWinnningTicketsTable(){
+    let tableBody = document.querySelector("#winningTicketsTblBody");
 
+    winningTickets.forEach((ticket)=>{
+        
+
+        // call function to build the individula table row and data
+        buildTableRow(tableBody,ticket);
+
+    })
+    // 
+    function buildTableRow(tableBody, data){
+
+        // create a new row and put at the end of the table 
+        let newRow = tableBody.insertRow(-1);
+
+        let cell1 = newRow.insertCell(0);
+        cell1.innerText = data.tixNum;
+
+        let cell2 = newRow.insertCell(1);
+        cell2.innerText = `$${data.prize.toFixed(2)}`
+
+        let cell3 = newRow.insertCell(2);
+        cell3.innerText = data.expires;
+
+
+
+    }
 }
